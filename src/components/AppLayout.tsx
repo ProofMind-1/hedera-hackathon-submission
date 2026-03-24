@@ -6,7 +6,6 @@ import {
   ArrowLeft, Github, Menu, X
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "@/components/ThemeToggle";
 import { Badge } from "@/components/ui/badge";
 
 const navItems = [
@@ -159,7 +158,6 @@ export default function AppLayout({ children, title, subtitle }: AppLayoutProps)
               <Bell className="w-4 h-4" />
               <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-primary" />
             </Button>
-            <ThemeToggle />
             <Button variant="ghost" size="icon" className="w-8 h-8">
               <Settings className="w-4 h-4" />
             </Button>

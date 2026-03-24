@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Shield, Search, ChevronRight, Menu, X } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 
 export interface TocItem {
@@ -160,7 +159,6 @@ const DocsLayout = ({ children, toc = [] }: DocsLayoutProps) => {
             <span className="text-sm text-muted-foreground hidden sm:inline">Documentation</span>
           </div>
           <div className="flex items-center gap-3">
-            <ThemeToggle />
             <Link to="/">
               <Button variant="outline" size="sm">Back to Home</Button>
             </Link>

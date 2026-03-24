@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Menu, X, ChevronDown, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "@/components/ThemeToggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -63,7 +62,6 @@ const Navbar = () => {
 
           {/* Right side */}
           <div className="flex items-center gap-2">
-            <ThemeToggle />
             <a href="https://github.com/proofmind" target="_blank" rel="noopener noreferrer" className="hidden sm:flex">
               <Button variant="ghost" size="icon" className="w-9 h-9">
                 <Github className="w-4 h-4" />
