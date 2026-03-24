@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── ProofMind design tokens (matches landing page palette) ───────────────── */
+@layer base {
+  :root {
+    /* Backgrounds */
+    --background: 0 0% 100%;           /* #FFFFFF */
+    --foreground: 222 6% 13%;          /* #202124 */
+
+    --card: 220 18% 98%;               /* #FAFAFA */
+    --card-foreground: 222 6% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 6% 13%;
+
+    /* Indigo #4F46E5 = HSL 243 75% 59% */
+    --primary: 243 75% 59%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light indigo surface #EEF2FF */
+    --secondary: 231 100% 97%;
+    --secondary-foreground: 222 6% 13%;
+
+    --muted: 228 18% 95%;              /* #F0F1F5 */
+    --muted-foreground: 222 5% 29%;    /* #45474D */
+
+    --accent: 243 75% 59%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Subtle border rgba(0,0,0,0.06) */
+    --border: 228 18% 92%;
+    --input:  228 18% 92%;
+    --ring:   243 75% 59%;
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #818CF8 50%, #6366F1 100%);
+    --gradient-hero: radial-gradient(ellipse 100% 80% at 50% -10%, rgba(79,70,229,0.06), transparent 60%);
+    --gradient-glow: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(79,70,229,0.06), transparent);
+    --gradient-card: linear-gradient(135deg, #FAFAFA 0%, #F0F1F5 100%);
+    --shadow-glow: 0 0 60px -15px rgba(79,70,229,0.3);
+    --shadow-card: 0 4px 30px -10px rgba(0,0,0,0.08);
+
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 222 6% 13%;
+    --sidebar-primary: 243 75% 59%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 231 100% 97%;
+    --sidebar-accent-foreground: 222 6% 13%;
+    --sidebar-border: 228 18% 92%;
+    --sidebar-ring: 243 75% 59%;
+  }
+
+  /* Keep dark mode same palette — disables unintended dark rendering */
+  .dark {
+    --background: 0 0% 100%;
+    --foreground: 222 6% 13%;
+    --card: 220 18% 98%;
+    --card-foreground: 222 6% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 6% 13%;
+    --primary: 243 75% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 231 100% 97%;
+    --secondary-foreground: 222 6% 13%;
+    --muted: 228 18% 95%;
+    --muted-foreground: 222 5% 29%;
+    --accent: 243 75% 59%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 228 18% 92%;
+    --input:  228 18% 92%;
+    --ring:   243 75% 59%;
+    --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #818CF8 50%, #6366F1 100%);
+    --gradient-card: linear-gradient(135deg, #FAFAFA 0%, #F0F1F5 100%);
+    --shadow-glow: 0 0 60px -15px rgba(79,70,229,0.3);
+    --shadow-card: 0 4px 30px -10px rgba(0,0,0,0.08);
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 222 6% 13%;
+    --sidebar-primary: 243 75% 59%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 231 100% 97%;
+    --sidebar-accent-foreground: 222 6% 13%;
+    --sidebar-border: 228 18% 92%;
+    --sidebar-ring: 243 75% 59%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Google Sans', Inter, sans-serif;
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .text-accent-glow {
+    color: hsl(var(--accent));
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-glow {
+    background: var(--gradient-glow);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Docs prose styles */
+  .prose-docs h2 {
+    @apply text-2xl font-bold mt-12 mb-4;
+  }
+  .prose-docs h3 {
+    @apply text-xl font-semibold mt-8 mb-3;
+  }
+  .prose-docs p {
+    @apply text-muted-foreground mb-4 leading-relaxed;
+  }
+  .prose-docs ul, .prose-docs ol {
+    @apply text-muted-foreground mb-4 pl-6;
+  }
+  .prose-docs li {
+    @apply mb-2;
+  }
+  .prose-docs code {
+    @apply text-accent font-mono text-sm px-1.5 py-0.5 rounded bg-secondary;
+  }
+  .prose-docs pre code {
+    @apply bg-transparent p-0 text-muted-foreground;
+  }
+}
